@@ -1,7 +1,9 @@
 package com.devsuperior.dslearn.entities;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 
 import javax.persistence.Entity;
@@ -43,7 +45,7 @@ public abstract class Lesson implements Serializable{
 	private Set<Enrollment> enrollmentDone = new HashSet<>();
 	
 	@OneToMany(mappedBy = "lesson")
-	private Set<Deliver> delivers = new HashSet<>();
+	private List<Deliver> delivers = new ArrayList<>();
 	
 	public Lesson() {
 	}
@@ -90,6 +92,10 @@ public abstract class Lesson implements Serializable{
 
 	public Set<Enrollment> getEnrollmentDone() {
 		return enrollmentDone;
+	}
+
+	public List<Deliver> getDelivers() {
+		return delivers;
 	}
 
 	@Override
