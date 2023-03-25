@@ -8,6 +8,7 @@ import javax.persistence.Column;
 import javax.persistence.EmbeddedId;
 import javax.persistence.Entity;
 import javax.persistence.ManyToMany;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 import com.devsuperior.dslearn.entities.pk.EnrollmentPK;
@@ -30,6 +31,9 @@ public class Enrollment {
 	
 	@ManyToMany(mappedBy = "enrollmentDone")
 	private Set<Lesson> lessonsDone = new HashSet<>();
+	
+	@OneToMany(mappedBy = "enrollments")
+	private Set<Deliver> delivers = new HashSet<>();
 	
 	public Enrollment() {
 	}
