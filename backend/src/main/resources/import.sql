@@ -30,3 +30,21 @@ INSERT INTO tb_section (title, description, position, img_Uri, resource_id, prer
 INSERT INTO tb_enrollment (user_id, offer_id, enroll_Moment, refund_Moment, available, only_Update) VALUES (1, 1, TIMESTAMP WITH TIME ZONE '2023-03-23T17:25:00Z', null, true, false);
 INSERT INTO tb_enrollment (user_id, offer_id, enroll_Moment, refund_Moment, available, only_Update) VALUES (2, 1, TIMESTAMP WITH TIME ZONE '2023-03-23T17:25:00Z', null, true, false);
 
+INSERT INTO tb_lesson (title, position, section_id) VALUES ('Aula 1', 1, 1);
+INSERT INTO tb_content (id, text_Content, video_Uri) VALUES (1 ,'Link para mais informação: https://www.linkedin.com/in/lluanps/', 'https://www.youtube.com/watch?v=R7UwEyqVGNg');
+
+INSERT INTO tb_lesson (title, position, section_id) VALUES ('Aula 2', 2, 1);
+INSERT INTO tb_content (id, text_Content, video_Uri) VALUES (2 ,'Link para mais informação: https://www.linkedin.com/in/lluanps/', 'https://www.youtube.com/watch?v=i6utiLkv12s');
+
+INSERT INTO tb_lesson (title, position, section_id) VALUES ('Aula 3', 3, 1);
+INSERT INTO tb_content (id, text_Content, video_Uri) VALUES (3 ,'Link para mais informação: https://www.linkedin.com/in/lluanps/', 'https://www.youtube.com/watch?v=CAP1IPgeJkw&t=2645s');
+
+INSERT INTO tb_lesson (title, position, section_id) VALUES ('Aula 4', 4, 1);
+INSERT INTO tb_content (id, text_Content, video_Uri) VALUES (4 ,'Link para mais informação: https://www.linkedin.com/in/lluanps/', 'https://www.youtube.com/watch?v=AUm23lsBh24');
+
+INSERT INTO tb_lesson (title, position, section_id) VALUES ('Aula 5', 4, 1);
+INSERT INTO tb_task (id, description, question_Count, approval_Count, weight, due_Date) VALUES (5, 'Trabalho', 5, 4, 1.0, TIMESTAMP WITH TIME ZONE '2023-03-28T17:25:00Z');
+
+INSERT INTO tb_lesson_done (lesson_id, user_id, offer_id) VALUES (1, 1, 1);
+INSERT INTO tb_lesson_done (lesson_id, user_id, offer_id) VALUES (2, 1, 1);
+
