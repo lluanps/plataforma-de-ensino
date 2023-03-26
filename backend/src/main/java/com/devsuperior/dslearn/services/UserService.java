@@ -5,7 +5,6 @@ import java.util.Optional;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.context.config.ConfigDataResourceNotFoundException;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
@@ -24,8 +23,14 @@ public class UserService implements UserDetailsService{
 	@Autowired
 	private UserRepository repository;
 	
+	@Autowired
+	private AuthService authService;
+	
 	@Transactional(readOnly = true)
 	public UserDTO findById(Long id) {
+		
+		authService.validateSelfOrAdmin(id);
+		
 		Optional<User> obj = repository.findById(id);
 		User entity = obj.orElseThrow();
 		return new UserDTO(entity);
@@ -35,10 +40,10 @@ public class UserService implements UserDetailsService{
 	public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
 		User user = repository.findByEmail(username);
 		if (user ==null) {
-			logger.error("User not found " + username);
-			throw new UsernameNotFoundException("Email not found");
+			logger.error("Usuário não encontrado " + username);
+			throw new UsernameNotFoundException("Email não encontrado");
 		}
-		logger.info("User Found " + username);
+		logger.info("Usuario não encontrado " + username);
 		return user;
 	}
 
